@@ -1,0 +1,4 @@
+cannon_dynamics:
+  ros__parameters:
+    initial_velocity: 42.0
+    angle: 69.17
