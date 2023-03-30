@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64MultiArray, Bool
 import math
+import numpy as np
 
 class numeric_dynamics(Node):
 
@@ -37,38 +38,41 @@ class numeric_dynamics(Node):
 
 	def init_calculations(self):
 		self.vel_orig = [math.cos(math.radians(self.init_angle))*self.init_speed, 
-						 math.sin(math.radians(self.init_angle))*self.init_speed]
+							math.sin(math.radians(self.init_angle))*self.init_speed]
 		self.vel = [self.vel_orig[0], self.vel_orig[1]]
 
 
-	def analytic_step(self):
-		self.vel[0] = self.vel_orig[0] + self.acc[0] * self.time
-		self.vel[1] = self.vel_orig[1] + self.acc[1] * self.time
+	def cannon_integ(self):
+		# assume constant acceleration
+		y0 = [self.acc[0], self.acc[0]]
+		y1 = [self.acc[1], self.acc[1]]
 
-		self.pos[0] = self.pos_orig[0] + (self.vel_orig[0] + (0.5) * self.acc[0] * self.time) * self.time
-		self.pos[1] = self.pos_orig[1] + (self.vel_orig[1] + (0.5) * self.acc[1] * self.time) * self.time
-		
+		# integrate 
+		new_vel0 = np.trapz(y0,dx=0.01) + self.vel[0]
+		new_vel1 = np.trapz(y1,dx=0.01) + self.vel[1]
+		new_pos0 = np.trapz([self.vel[0], new_vel0], dx=0.01) + self.pos[0]
+		new_pos1 = np.trapz([self.vel[1], new_vel1], dx=0.01) + self.pos[1]
+
+		# update state
+		self.vel[0] = new_vel0
+		self.vel[1] = new_vel1
+		self.pos[0] = new_pos0
+		self.pos[1] = new_pos1
+
+		self.time += 0.01
+
 		if (self.pos[1] < 0.0):
-			self.impactTime = (-self.vel_orig[1] - math.sqrt(self.vel_orig[1] * self.vel_orig[1] - 2 * self.pos_orig[1]))/self.acc[1]
-			self.pos[0] = self.impactTime * self.vel_orig[0]
-			self.pos[1] = 0.0
-			self.vel[0] = 0.0
-			self.vel[1] = 0.0
-
+			self.impactTime = self.time
 			if not self.impact:
 				self.impact = True
 				self.get_logger().info(f"\n\nIMPACT: t = {self.impactTime}, pos[0] = {self.pos[0]}\n\n")
-        
-		# Increment time by the time delta that matches the frequency 
-		# specified in the scheduler node.
-		self.time += 0.01
-		
+
 
 	def timer_callback(self,heartbeat):
 		msg = Float64MultiArray()
 
 		# single calculation step 
-		self.analytic_step()
+		self.cannon_integ()
 
 		msg.data = [self.pos[0], 
 					self.pos[1], 
