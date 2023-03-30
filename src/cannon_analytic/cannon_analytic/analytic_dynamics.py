@@ -14,10 +14,12 @@ class analytic_dynamics(Node):
 		# declare parameters
 		self.declare_parameter('init_speed', 50.0)
 		self.declare_parameter('init_angle', 30.0)
+		self.declare_parameter('dt', 0.01)
 
-		# get value from yaml
+		# get parameter values from yaml
 		self.cann.init_speed = self.get_parameter('init_speed').get_parameter_value().double_value
 		self.cann.init_angle = self.get_parameter('init_angle').get_parameter_value().double_value
+		self.cann.dt = self.get_parameter('dt').get_parameter_value().double_value
 
 		# publish and subscribe
 		self.publisher_ = self.create_publisher(Float64MultiArray, 'cannon/state', 10)
@@ -27,7 +29,7 @@ class analytic_dynamics(Node):
 		# - comment out the previous line 
 		# - uncomment the following two lines
 		# - remove the heartbeat parameter from timer_callback
-		#timer_period = 0.01  # seconds
+		#timer_period = self.cann.dt  # seconds
 		#self.timer = self.create_timer(timer_period, self.timer_callback)
 
 

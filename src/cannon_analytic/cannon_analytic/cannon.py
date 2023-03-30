@@ -15,8 +15,10 @@ class cannon:
 			self.impact = False
 			self.impactTime = 0.0
 
+			# ROS parameters
 			self.init_speed = 50.0
 			self.init_angle = 30.0
+			self.dt = 0.01
 
 
 	def init_calculations(self):
@@ -45,4 +47,4 @@ class cannon:
         
 		# Increment time by the time delta that matches the frequency 
 		# specified in the scheduler node.
-		self.time += 0.01
+		self.time += self.dt
