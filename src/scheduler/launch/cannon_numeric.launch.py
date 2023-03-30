@@ -18,13 +18,13 @@ def generate_launch_description():
 	parameters = [config]
 	)
 
-	cannon_analytic_node=Node(
-	package = 'cannon_analytic',
-	name = 'cannon_analytic',
-	executable = 'analytic_dynamics',
+	cannon_numeric_node=Node(
+	package = 'cannon_numeric',
+	name = 'cannon_numeric',
+	executable = 'numeric_dynamics',
 	parameters = [config]
 	)
 
 	ld.add_action(sched_node)
-	ld.add_action(cannon_analytic_node)
+	ld.add_action(cannon_numeric_node)
 	return ld

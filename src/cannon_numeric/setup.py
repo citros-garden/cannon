@@ -2,7 +2,7 @@ from setuptools import setup
 from glob import glob
 import os
 
-package_name = 'cannon_analytic'
+package_name = 'cannon_numeric'
 
 setup(
     name=package_name,
@@ -24,7 +24,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'analytic_dynamics = cannon_analytic.analytic_dynamics:main'
+            'numeric_dynamics = cannon_numeric.numeric_dynamics:main'
         ],
     },
 )

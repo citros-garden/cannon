@@ -9,28 +9,41 @@ class scheduler(Node):
 	def __init__(self):
 		super().__init__('scheduler')
 
+		# publish and subscribe
 		self.sub_debug = self.create_subscription(Bool, '/debug', self.debug_step, 1)
-
 		self.publisher_ = self.create_publisher(Bool, 'scheduler', 10)
-		timer_period = 0.01  # seconds
+
+		# declare parameter
+		self.declare_parameter('dt', 0.01) # seconds
+
+		# create and start timer
+		timer_period = self.get_parameter('dt').get_parameter_value().double_value
 		self.timer = self.create_timer(timer_period, self.timer_callback)
+		
 		self.debug_mode = False
 
+
 	def timer_callback(self):
-		msg = Bool()
-		
-		# heart beat
-		msg.data = True
+		# if not in debug mode, send heartbeat every timeout
 		if not self.debug_mode:
+			msg = Bool()
+			msg.data = True
 			self.publisher_.publish(msg)
+
 
 	# callback to handle messages from foxglove control panel
 	def debug_step(self, msg):
 		if msg.data:
-			self.debug_mode = True
-			self.publisher_.publish(msg)
+			if self.debug_mode:
+				# single step
+				self.publisher_.publish(msg)
+			else:
+				# pause
+				self.debug_mode = True
+			
 		else:
 			self.debug_mode = False
+
 
 def main(args=None):
     rclpy.init(args=args)
