@@ -9,14 +9,16 @@ class numeric_dynamics(Node):
 	def __init__(self):
 		super().__init__('cannon_dynamics')
 
-		self.publisher_ = self.create_publisher(Float64MultiArray, 'cannon/state', 10)
-		self.sub_scheduler = self.create_subscription(Bool, '/scheduler', self.timer_callback, 1)
-
 		self.cannon_default_data()
 		self.init_calculations()
 
-		#timer_period = 0.01  # seconds
-		#self.timer = self.create_timer(timer_period, self.timer_callback)
+		self.publisher_ = self.create_publisher(Float64MultiArray, 'cannon/state', 10)
+		self.sub_scheduler = self.create_subscription(Bool, '/scheduler', self.timer_callback, 1)
+
+		# for a stand-alone version of this node (which is not dependant on a scheduler node),
+		# comment out the previous line and uncomment the following two lines.
+		# timer_period = 0.01  # seconds
+		# self.timer = self.create_timer(timer_period, self.timer_callback)
 
 
 	def cannon_default_data(self):
