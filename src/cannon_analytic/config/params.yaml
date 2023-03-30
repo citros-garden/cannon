@@ -1,4 +1,4 @@
-cannon_dynamics:
+analytic_dynamics:
   ros__parameters:
     init_speed: 42.0
     init_angle: 30
