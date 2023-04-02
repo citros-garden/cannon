@@ -37,7 +37,8 @@ class analytic_dynamics(Node):
 		msg = Float64MultiArray()
 
 		# single calculation step 
-		self.cann.analytic_step()
+		if not self.cann.impact:
+			self.cann.analytic_step()
 
 		msg.data = [self.cann.pos[0], 
 			    self.cann.pos[1], 

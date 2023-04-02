@@ -37,12 +37,13 @@ class numeric_dynamics(Node):
 		msg = Float64MultiArray()
 
 		# single calculation step 
-		self.cann.cannon_integ()
+		if not self.cann.impact:
+			self.cann.cannon_integ()
 
 		msg.data = [self.cann.pos[0], 
-					self.cann.pos[1], 
-					self.cann.vel[0], 
-					self.cann.vel[1]]
+			    self.cann.pos[1], 
+			    self.cann.vel[0], 
+			    self.cann.vel[1]]
 
 		# publish result
 		self.publisher_.publish(msg)

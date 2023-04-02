@@ -42,6 +42,7 @@ class scheduler(Node):
 				self.debug_mode = True
 			
 		else:
+			# play/resume
 			self.debug_mode = False
 
 

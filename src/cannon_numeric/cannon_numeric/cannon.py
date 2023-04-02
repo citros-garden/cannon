@@ -50,6 +50,9 @@ class cannon:
 
 		if (self.pos[1] < 0.0):
 			self.impactTime = self.time
+			self.pos[1] = 0.0
+			self.vel[0] = 0.0
+			self.vel[1] = 0.0
 			if not self.impact:
 				self.impact = True
 				self.logger.info(f"\n\nIMPACT: t = {self.impactTime}, pos[0] = {self.pos[0]}\n\n")

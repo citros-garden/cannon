@@ -1,0 +1,80 @@
+{
+  "configById": {
+    "Publish!4btiff7": {
+      "topicName": "/debug",
+      "datatype": "std_msgs/msg/Bool",
+      "buttonText": "Pause / Step",
+      "buttonTooltip": "pause simulation or perform a single step",
+      "buttonColor": "#00A871",
+      "advancedView": false,
+      "value": "{\n  \"data\": true\n}"
+    },
+    "Publish!3el4kd": {
+      "topicName": "/debug",
+      "datatype": "std_msgs/msg/Bool",
+      "buttonText": "Play / Resume",
+      "buttonTooltip": "play or resume simulation",
+      "buttonColor": "#4400a8",
+      "advancedView": false,
+      "value": "{\n  \"data\": false\n}"
+    },
+    "Plot!jqhyaa": {
+      "title": "Plot",
+      "paths": [
+        {
+          "value": "/cannon/state.data[0]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 60
+    },
+    "Plot!4kd2xj4": {
+      "title": "Plot",
+      "paths": [
+        {
+          "value": "/cannon/state.data[1]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 60
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "first": {
+      "first": {
+        "first": "Publish!4btiff7",
+        "second": "Publish!3el4kd",
+        "direction": "row"
+      },
+      "second": "Plot!jqhyaa",
+      "direction": "column",
+      "splitPercentage": 17.213114754098356
+    },
+    "second": "Plot!4kd2xj4",
+    "direction": "column",
+    "splitPercentage": 53.0511811023622
+  }
+}
