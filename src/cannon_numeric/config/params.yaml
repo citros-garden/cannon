@@ -1,4 +1,4 @@
-analytic_dynamics:
+numeric_dynamics:
   ros__parameters:
     init_speed: 50.0
     init_angle: 30.0
