@@ -56,3 +56,12 @@ You will need to build (and source) again.
 
 Output example:
 ![Foxglove screenshot](foxglove_screenshot.png)
+
+
+## Production Docker
+```bash
+docker build -t cannon
+citros docker -login
+docker type cannon us-central1-docker.pkg.dev/citros/lulav/cannon
+docker push us-central1-docker.pkg.dev/citros/lulav/cannon
+```
