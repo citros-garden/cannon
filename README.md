@@ -61,6 +61,11 @@ Output example:
 ## Production Docker
 ```bash
 docker build -t cannon
+
+# *** when building from MAC M1 chip add FROM --platform=linux/amd64 ***
+docker buildx build --platform linux/amd64 -t lulav_wespace_sim .   
+
+
 citros docker -login
 docker type cannon us-central1-docker.pkg.dev/citros/lulav/cannon
 docker push us-central1-docker.pkg.dev/citros/lulav/cannon
