@@ -63,7 +63,7 @@ Output example:
 docker build -t cannon .
 
 # *** when building from MAC M1 chip add FROM --platform=linux/amd64 ***
-docker buildx build --platform linux/amd64 -t lulav_wespace_sim .   
+docker buildx build --platform linux/amd64 -t cannon .   
 
 
 citros docker-login
