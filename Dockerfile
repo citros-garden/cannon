@@ -16,6 +16,8 @@ RUN sudo apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-rosbag2-transport \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install setuptools==58.2.0
+
 # sourcing ROS
 RUN echo "source /opt/ros/humble/setup.bash" >> /home/$USERNAME/.bashrc
 RUN echo "source install/local_setup.bash" >> /home/$USERNAME/.bashrc
