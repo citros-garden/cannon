@@ -6,3 +6,4 @@ site/*
 .citros/
 util/
 .env
+tmp/
