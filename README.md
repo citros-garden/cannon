@@ -7,7 +7,7 @@ It determines the trajectory and time of impact of a cannon ball that is fired w
 
 ![Cannonball](CannonInit.png "Cannonball")
 
-Two versions of the simulation are provided: an analytic solution and a numeric integration solution.
+Two versions of the simulation are provided: an analytic solution and a numeric integration solution.50395d2e962d
 
 ## Prerequisites
 
@@ -69,4 +69,7 @@ docker buildx build --platform linux/amd64 -t cannon .
 citros docker-login
 docker tag cannon us-central1-docker.pkg.dev/citros/lulav/cannon
 docker push us-central1-docker.pkg.dev/citros/lulav/cannon
+
+docker tag cannon registry.local:32000/citros/lulav/cannon
+docker push registry.local:32000/citros/lulav/cannon
 ```
