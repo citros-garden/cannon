@@ -4,6 +4,6 @@ log/*
 site/*
 
 .citros/
-util/
+utils/
 .env
 tmp/
