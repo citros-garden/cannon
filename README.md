@@ -67,6 +67,12 @@ docker buildx build --platform linux/amd64 -t cannon .
 
 
 citros docker-login
+
+# dev
+docker tag cannon registry.local:32000/citros/lulav/cannon
+docker push registry.local:32000/citros/lulav/cannon
+
+# production
 docker tag cannon us-central1-docker.pkg.dev/citros/lulav/cannon
 docker push us-central1-docker.pkg.dev/citros/lulav/cannon
 ```

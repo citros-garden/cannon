@@ -37,9 +37,9 @@
         "**/log": true
     },
     "cSpell.words": [
-        "RTPS",
         "athackst",
         "autopep",
+        "CITROS",
         "cmake",
         "cppcheck",
         "cpplint",
@@ -47,7 +47,9 @@
         "deque",
         "devcontainer",
         "ints",
+        "loggedin",
         "noqa",
+        "projdir",
         "pytest",
         "rclcpp",
         "rclpy",

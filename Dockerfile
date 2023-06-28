@@ -22,7 +22,8 @@ RUN pip install setuptools==58.2.0
 RUN echo "source /opt/ros/humble/setup.bash" >> /home/$USERNAME/.bashrc
 RUN echo "source install/local_setup.bash" >> /home/$USERNAME/.bashrc
 
-WORKDIR /workspaces/citros_cannon
+WORKDIR /workspaces/cannon
+
 
 COPY src src
 COPY ros2_entrypoint.sh ros2_entrypoint.sh
@@ -36,6 +37,6 @@ RUN apt update && apt-get install -y ros-humble-rosbridge-suite
 RUN pip install citros
 
 RUN chmod +x ros2_entrypoint.sh
-ENTRYPOINT ["/workspaces/citros_cannon/ros2_entrypoint.sh"]
+ENTRYPOINT ["/workspaces/cannon/ros2_entrypoint.sh"]
 
 CMD ["bash"]
