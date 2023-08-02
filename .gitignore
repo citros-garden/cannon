@@ -7,3 +7,6 @@ site/*
 utils/
 .env
 tmp/
+
+.dvc/
+.dvcignore
