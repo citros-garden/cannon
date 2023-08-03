@@ -34,7 +34,12 @@ RUN colcon build
 # download rosbridge for Foxglove monitoring
 RUN apt update && apt-get install -y ros-humble-rosbridge-suite
 
-RUN pip install citros
+# ----------------FIX--------------------
+# TODO: fix for production!
+# RUN pip install citros
+COPY utils utils
+RUN pip install utils/citros_cli
+# ----------------FIX--------------------
 
 RUN chmod +x ros2_entrypoint.sh
 ENTRYPOINT ["/workspaces/cannon/ros2_entrypoint.sh"]
