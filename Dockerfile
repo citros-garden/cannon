@@ -8,15 +8,14 @@ RUN apt-get update && apt-get install -y \
     curl \      
     && rm -rf /var/lib/apt/lists/*
 
-RUN sudo apt-get update && apt-get install -y \
-    ros-$ROS_DISTRO-rosbag2-storage-mcap \
-    ros-$ROS_DISTRO-rosbag2 \
-    ros-$ROS_DISTRO-ros-base \
-    ros-$ROS_DISTRO-ros2bag \
-    ros-$ROS_DISTRO-rosbag2-transport \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install setuptools==58.2.0
+# RUN sudo apt-get update && apt-get install -y \
+#     ros-$ROS_DISTRO-rosbag2-storage-mcap \
+#     ros-$ROS_DISTRO-rosbag2 \
+#     ros-$ROS_DISTRO-ros-base \
+#     ros-$ROS_DISTRO-ros2bag \
+#     ros-$ROS_DISTRO-rosbag2-transport \
+#     && rm -rf /var/lib/apt/lists/*
+# RUN pip install setuptools==58.2.0
 
 # sourcing ROS
 RUN echo "source /opt/ros/humble/setup.bash" >> /home/$USERNAME/.bashrc
