@@ -51,6 +51,8 @@ class analytic_dynamics(Node):
 		# for debugging: print published data in console
 		if not self.cann.impact:
 			self.get_logger().info(f"Publishing: {msg.data}")
+		else:
+			exit()
 
 
 def main(args=None):
