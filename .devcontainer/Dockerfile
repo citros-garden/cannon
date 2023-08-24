@@ -18,4 +18,4 @@ RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/in
 # Fixing building error
 RUN pip install setuptools==58.2.0
 # download rosbridge for Foxglove monitoring
-RUN apt update && apt-get install -y ros-humble-rosbridge-suite
+RUN apt update && apt-get install -y ros-humble-rosbridge-suite ros-humble-rosbag2-storage-mcap

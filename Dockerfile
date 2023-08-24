@@ -31,7 +31,7 @@ COPY ros2_entrypoint.sh ros2_entrypoint.sh
 RUN colcon build
 
 # download rosbridge for Foxglove monitoring
-RUN apt update && apt-get install -y ros-humble-rosbridge-suite
+RUN apt update && apt-get install -y ros-humble-rosbridge-suite ros-humble-rosbag2-storage-mcap
 
 # ----------------FIX--------------------
 # TODO: fix for production!
