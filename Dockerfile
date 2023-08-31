@@ -35,7 +35,7 @@ RUN apt update && apt-get install -y ros-humble-rosbridge-suite ros-humble-rosba
 
 # ----------------FIX--------------------
 # TODO: fix for production!
-RUN pip install citros==1.1.43
+RUN pip install citros==1.1.44
 # COPY .citros .citros
 # COPY utils utils
 # RUN pip install utils/citros_cli
