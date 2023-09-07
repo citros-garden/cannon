@@ -6,7 +6,6 @@ class cannon:
 	def __init__(self, logger):
 		self.logger = logger
 		self.cannon_default_data()
-		self.init_calculations()
 
 
 	def cannon_default_data(self):

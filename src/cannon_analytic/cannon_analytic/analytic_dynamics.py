@@ -21,6 +21,9 @@ class analytic_dynamics(Node):
 		self.cann.init_angle = self.get_parameter('init_angle').get_parameter_value().double_value
 		self.cann.dt = self.get_parameter('dt').get_parameter_value().double_value
 
+		# initialize the velocity vector with the yaml values
+		self.cann.init_calculations()
+
 		# publish and subscribe
 		self.publisher_ = self.create_publisher(Float64MultiArray, 'cannon/state', 10)
 		self.sub_scheduler = self.create_subscription(Bool, '/scheduler', self.timer_callback, 1)

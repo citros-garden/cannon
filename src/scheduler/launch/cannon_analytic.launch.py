@@ -27,14 +27,18 @@ def generate_launch_description():
 	package = 'scheduler',
 	name = 'scheduler',
 	executable = 'scheduler',
-	parameters = [config_sched]
+	parameters = [config_sched],
+	output='screen',
+	emulate_tty=True
 	)
 
 	cannon_analytic_node=Node(
 	package = 'cannon_analytic',
 	name = 'analytic_dynamics',
 	executable = 'analytic_dynamics',
-	parameters = [config_analytic]
+	parameters = [config_analytic],
+	output='screen',
+	emulate_tty=True
 	)
 
 	bridge_dir = get_package_share_directory('rosbridge_server')
