@@ -10,6 +10,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 	ld = LaunchDescription()
+	
 	config_sched = os.path.join(
 	get_package_share_directory('scheduler'),
 	'config',

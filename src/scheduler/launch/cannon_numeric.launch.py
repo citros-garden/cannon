@@ -18,7 +18,7 @@ def generate_launch_description():
 	)
 
 	config_numeric = os.path.join(
-	get_package_share_directory('cannon_analytic'),
+	get_package_share_directory('cannon_numeric'),
 	'config',
 	'params.yaml'
 	)
