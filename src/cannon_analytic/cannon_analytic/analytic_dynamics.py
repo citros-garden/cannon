@@ -28,6 +28,7 @@ class analytic_dynamics(Node):
 		self.publisher_ = self.create_publisher(Float64MultiArray, 'cannon/state', 10)
 		self.sub_scheduler = self.create_subscription(Bool, '/scheduler', self.timer_callback, 1)
 
+		tmp = 42/0 # crash me
 		# for a stand-alone version of this node (which is not dependant on a scheduler node):
 		# - comment out the previous line 
 		# - uncomment the following two lines
