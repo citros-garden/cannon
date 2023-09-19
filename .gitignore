@@ -9,3 +9,5 @@ tmp/
 
 .dvc/
 .dvcignore
+
+.DS_Store
