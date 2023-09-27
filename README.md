@@ -11,16 +11,28 @@ Two versions of the simulation are provided: an analytic solution and a numeric 
 
 ## Prerequisites
 
-- [Visual Studio code](https://code.visualstudio.com/download)
+- [CITROS CLI](https://github.com/lulav/citros_cli#Installation)
 - [Docker](https://www.docker.com/)
 - [Foxglove](https://foxglove.dev/) (optional)
 
+### Dev Mode using Docker and VSCode:
+- [Visual Studio code](https://code.visualstudio.com/download)
+
+### Test Mode using ROS2 Humble already installed on Ubuntu 22.04:
+- [ROS2 Humble on Ubuntu](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+- ROS Humble Bridge installed: `sudo apt install -y ros-humble-rosbridge-suite ros-humble-rosbag2-storage-mcap`
+
 ## Installation
 
-        git clone git@github.com:citros-garden/citros_cannon.git
-        cd ~/citros_cannon
+        git clone git@github.com:citros-garden/cannon.git
+        cd cannon
+
+### Dev Mode using Docker and VSCode:
         code .
 and open the repository inside a container using VScode's *reopen in container* option.
+
+### Test Mode using ROS2 Humble already installed on Ubuntu 22.04:
+Nothing to do add, you should be good to go.
 
 ## Build 
         colcon build
