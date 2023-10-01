@@ -1,6 +1,6 @@
 # Cannon
 
-This is a ROS implementation of the [cannonball simulation](https://nasa.github.io/trick/tutorial/ATutASimpleSim) provided by NASA Johnson Space Center as part of the tutorial for the 
+This project is a ROS implementation of the [cannonball simulation](https://nasa.github.io/trick/tutorial/ATutASimpleSim) provided by NASA Johnson Space Center as part of the tutorial for the 
 [Trick Simulation Environment](https://nasa.github.io/trick/).
 
 It determines the trajectory and time of impact of a cannon ball that is fired with an initial speed and initial angle, assuming a constant acceleration of gravity (g), and no aerodynamic forces.
@@ -17,8 +17,8 @@ Two versions of the simulation are provided: an analytic solution and a numeric 
 
 ## Installation
 
-        git clone git@github.com:citros-garden/citros_cannon.git
-        cd ~/citros_cannon
+        git clone git@github.com:citros-garden/cannon.git
+        cd ~/cannon
         code .
 and open the repository inside a container using VScode's *reopen in container* option.
 
