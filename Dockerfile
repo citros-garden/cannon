@@ -35,9 +35,9 @@ RUN apt update && apt-get install -y ros-humble-rosbridge-suite ros-humble-rosba
 
 # ----------------FIX--------------------
 # TODO: fix for production!
-# RUN pip install citros==1.2.28
-RUN pip install --no-cache-dir --upgrade pip \
-  && pip install --no-cache-dir citros
+RUN pip install citros==1.2.36
+# RUN pip install --no-cache-dir --upgrade pip \
+#     && pip install --no-cache-dir citros
 # ----------------FIX--------------------
 
 RUN chmod +x ros2_entrypoint.sh
