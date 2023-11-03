@@ -41,9 +41,10 @@ def generate_launch_description():
 	emulate_tty=True
 	)
 
-	bridge_dir = get_package_share_directory('rosbridge_server')
-	bridge_launch =  IncludeLaunchDescription(launch_description_sources.FrontendLaunchDescriptionSource(bridge_dir + '/launch/rosbridge_websocket_launch.xml')) 
     
+	bridge_dir = get_package_share_directory('foxglove_bridge')
+	bridge_launch =  IncludeLaunchDescription(launch_description_sources.FrontendLaunchDescriptionSource(bridge_dir + '/launch/foxglove_bridge_launch.xml')) 
+
 	sys_shut_down = RegisterEventHandler(OnProcessExit(
 		target_action=cannon_analytic_node,
         on_exit=[
