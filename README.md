@@ -9,43 +9,84 @@ It determines the trajectory and time of impact of a cannon ball that is fired w
 
 Two versions of the simulation are provided: an analytic solution and a numeric integration solution.
 
-## Prerequisites
+# Prerequisites
+You can either run inside *Docker* (with VSCode or manual) or on an *Ubuntu with ROS2 Humble* installed.
 
-- [CITROS CLI](https://github.com/lulav/citros_cli#Installation)
-- [Docker](https://www.docker.com/)
 - [Foxglove](https://foxglove.dev/) (optional)
 
-### Dev Mode using Docker and VSCode:
-- [Visual Studio code](https://code.visualstudio.com/download)
+## Using *Docker* and/or VSCode:
+- [Docker](https://www.docker.com/)
+- [Visual Studio code](https://code.visualstudio.com/download) (optional)
 
-### Test Mode using ROS2 Humble already installed on Ubuntu 22.04:
+## Using *Ubuntu with ROS2 Humble*:
+We tested it on Ubuntu 22.04
+
+- [CITROS CLI](https://citros.io/doc/docs_cli/overview/cli_install)
 - [ROS2 Humble on Ubuntu](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 - ROS Humble Bridge installed: `sudo apt install -y ros-humble-rosbridge-suite ros-humble-rosbag2-storage-mcap`
 
-## Installation
+# Installation
+```bash
+git clone git@github.com:citros-garden/cannon.git
+cd cannon
+```
 
-        git clone git@github.com:citros-garden/cannon.git
-        cd cannon
-
-### Dev Mode using Docker and VSCode:
-        code .
-and open the repository inside a container using VScode's *reopen in container* option.
-
-### Test Mode using ROS2 Humble already installed on Ubuntu 22.04:
+## Using *Ubuntu with ROS2 Humble*:
 Nothing to do add, you should be good to go.
 
-## Build 
-        colcon build
-        source install/local_setup.bash
+## Using *Docker* directly:
+```bash
+docker build -t citros_cannon .
+docker run -it citros_cannon /bin/bash
+```
 
-## Run the analytic solution
-        ros2 launch scheduler cannon_analytic.launch.py
+## Using *Docker* and VSCode:
+```bash
+code .
+```
+and open the repository inside a container using VScode's *reopen in container* option.
 
-## Run the numeric integration solution
-        ros2 launch scheduler cannon_numeric.launch.py
+# Build 
+```bash
+colcon build
+source install/local_setup.bash
+```
 
-
+# Run Simulation
 Running either of the two simulations will result in the logger output being written to the console.
+
+## Run the analytic solution in pure ROS
+```bash
+ros2 launch scheduler cannon_analytic.launch.py
+```
+
+## Run the numeric integration solution in pure ROS
+```bash
+ros2 launch scheduler cannon_numeric.launch.py
+```
+
+# Config CITROS
+
+## Connected to CITROS Servers (optional)
+```bash
+citros login
+```
+The login will guide you through the whole setup process with SSH key exchange also.
+
+## Init CITROS
+```bash
+citros init
+```
+
+## Run Simulation with CITROS locally
+```bash
+citros run -n "run_1" -m "first run"
+```
+
+## Run Simulation with CITROS remotely on CITROS servers
+```bash
+citros run -n "run_1" -m "first remote run" -r
+```
 
 ## Implementation Overview
 The project is made out of three ROS nodes - `cannon_analytic`, `cannon_numeric` and `scheduler`. The scheduler node is responsible for driving the simulation by publishing a `scheduler` topic at a given rate (say, 100Hz). The cannon nodes subscribe to this topic, and upon receiving it perform a single calculation step. The rate (`dt`) is a ROS parameter for the scheduler node, which means you may change its value in the `config/params.yaml` file, without the need to recompile. The two cannon nodes also have `params.yaml` files of their own, in which you can set the initial speed and angle, and also the time/integration delta (`dt`).
@@ -57,6 +98,8 @@ The output of the simulation, i.e. the topic containing the calculated results, 
         [position_x, position_y, velocity_x, velocity_y]
 
 The simulation will halt when `position_y` reaches zero (i.e. impact).
+
+
 
 ## Foxglove
 To view a graphical representation of the simulation, you can open [Foxglove](https://foxglove.dev/) and load the `CITROS_Cannon.json` layout file, or create your own layout.
@@ -82,8 +125,15 @@ Output example:
 
 # run
 
+
+## Run with docker run
 ```bash
 docker run -it -e CITROS_ENVIRONMENT=CLUSTER -e JOB_COMPLETION_INDEX=0 -e CITROS_DOMAIN=dev1.citros.io --mount type=bind,source="$(pwd)"/.citros/auth,target=/root/.citros/auth,readonly cannon citros run -b a519b502-e275-4ccc-90d7-9a2f6163c8d8 -i JOB_COMPLETION_INDEX -n "name" -m "message" -v -d
+```
+
+## Run Remotely on CITROS web servers
+```bash
+citros run -n "run_1" -m "first run" -v
 ```
 
 ## Production Docker
