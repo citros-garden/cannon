@@ -1,5 +1,5 @@
 # Cannon
-
+ 
 This project is a ROS implementation of the [cannonball simulation](https://nasa.github.io/trick/tutorial/ATutASimpleSim) provided by NASA Johnson Space Center as part of the tutorial for the 
 [Trick Simulation Environment](https://nasa.github.io/trick/).
 
