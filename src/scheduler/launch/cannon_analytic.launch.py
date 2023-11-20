@@ -28,7 +28,7 @@ def generate_launch_description():
 	name = 'scheduler',
 	executable = 'scheduler',
 	parameters = [config_sched],
-	output='screen',
+	output='both',
 	emulate_tty=True
 	)
 
@@ -37,7 +37,7 @@ def generate_launch_description():
 	name = 'analytic_dynamics',
 	executable = 'analytic_dynamics',
 	parameters = [config_analytic],
-	output='screen',
+	output='both',
 	emulate_tty=True
 	)
 
