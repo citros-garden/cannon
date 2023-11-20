@@ -26,7 +26,7 @@ RUN apt update && apt-get install -y ros-humble-rosbridge-suite ros-humble-rosba
 
 # ----------------FIX---------------------
 # TODO: fix for production!
-RUN pip install citros==1.2.52
+RUN pip install citros==1.2.66
 # RUN pip install --no-cache-dir --upgrade pip \
 #     && pip install --no-cache-dir citros
 # ----------------FIX---------------------
