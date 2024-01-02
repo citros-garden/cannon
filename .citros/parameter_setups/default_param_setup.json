@@ -1,0 +1,29 @@
+{
+    "packages": {
+        "cannon_analytic": {
+            "analytic_dynamics": {
+                "ros__parameters": {
+                    "dt": 0.01,
+                    "init_angle": 30.0,
+                    "init_speed": 50.0
+                }
+            }
+        },
+        "cannon_numeric": {
+            "numeric_dynamics": {
+                "ros__parameters": {
+                    "dt": 0.01,
+                    "init_angle": 30.0,
+                    "init_speed": 50.0
+                }
+            }
+        },
+        "scheduler": {
+            "scheduler": {
+                "ros__parameters": {
+                    "dt": 0.01
+                }
+            }
+        }
+    }
+}

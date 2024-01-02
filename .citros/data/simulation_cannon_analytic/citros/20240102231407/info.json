@@ -1,0 +1,17 @@
+{
+    "branch": "main",
+    "commit": "faaf0f868b36ea03437ad032031f0625d887765e",
+    "completions": "1",
+    "cpu": 2,
+    "created_at": "2024-01-02 23:14:07",
+    "gpu": 0,
+    "memory": 265,
+    "message": "This is a default batch message from citros",
+    "metadata": "",
+    "name": "citros",
+    "simulation": "simulation_cannon_analytic",
+    "status": "RUNNING",
+    "storage_type": "MCAP",
+    "timeout": 60,
+    "updated_at": "2024-01-02 23:14:07"
+}

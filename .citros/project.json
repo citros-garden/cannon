@@ -1,0 +1,130 @@
+{
+    "citros_cli_version": "0.2.9",
+    "cover": "",
+    "description": "",
+    "git": "git@github.com:citros-garden/cannon.git",
+    "is_active": true,
+    "launches": [],
+    "packages": [
+        {
+            "cover": "",
+            "description": "TODO: Package description",
+            "git": "",
+            "launches": [],
+            "maintainer": "ros",
+            "maintainer_email": "shalev@lulav.space",
+            "name": "cannon_analytic",
+            "nodes": [
+                {
+                    "entry_point": "cannon_analytic.analytic_dynamics:main",
+                    "name": "analytic_dynamics",
+                    "parameters": [
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "init_speed",
+                            "parameterType": "float",
+                            "value": 50.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "init_angle",
+                            "parameterType": "float",
+                            "value": 30.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "dt",
+                            "parameterType": "float",
+                            "value": 0.01
+                        }
+                    ],
+                    "path": "src/cannon_analytic/cannon_analytic/analytic_dynamics.py"
+                }
+            ],
+            "package_xml": "src/cannon_analytic/package.xml",
+            "parameters": {},
+            "path": "src/cannon_analytic",
+            "setup_py": "src/cannon_analytic/setup.py"
+        },
+        {
+            "cover": "",
+            "description": "TODO: Package description",
+            "git": "",
+            "launches": [],
+            "maintainer": "ros",
+            "maintainer_email": "shalev@lulav.space",
+            "name": "cannon_numeric",
+            "nodes": [
+                {
+                    "entry_point": "cannon_numeric.numeric_dynamics:main",
+                    "name": "numeric_dynamics",
+                    "parameters": [
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "init_speed",
+                            "parameterType": "float",
+                            "value": 50.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "init_angle",
+                            "parameterType": "float",
+                            "value": 30.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "dt",
+                            "parameterType": "float",
+                            "value": 0.01
+                        }
+                    ],
+                    "path": "src/cannon_numeric/cannon_numeric/numeric_dynamics.py"
+                }
+            ],
+            "package_xml": "src/cannon_numeric/package.xml",
+            "parameters": {},
+            "path": "src/cannon_numeric",
+            "setup_py": "src/cannon_numeric/setup.py"
+        },
+        {
+            "cover": "",
+            "description": "TODO: Package description",
+            "git": "",
+            "launches": [
+                {
+                    "description": "",
+                    "name": "cannon_analytic.launch.py",
+                    "path": "src/scheduler/launch/cannon_analytic.launch.py"
+                },
+                {
+                    "description": "",
+                    "name": "cannon_numeric.launch.py",
+                    "path": "src/scheduler/launch/cannon_numeric.launch.py"
+                }
+            ],
+            "maintainer": "ros",
+            "maintainer_email": "shalev@lulav.space",
+            "name": "scheduler",
+            "nodes": [
+                {
+                    "entry_point": "scheduler.scheduler:main",
+                    "name": "scheduler",
+                    "parameters": [
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "dt",
+                            "parameterType": "float",
+                            "value": 0.1
+                        }
+                    ],
+                    "path": "src/scheduler/scheduler/scheduler.py"
+                }
+            ],
+            "package_xml": "src/scheduler/package.xml",
+            "parameters": {},
+            "path": "src/scheduler",
+            "setup_py": "src/scheduler/setup.py"
+        }
+    ],
+    "tags": []
+}

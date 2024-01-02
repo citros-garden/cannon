@@ -1,0 +1,14 @@
+{
+    "CPU": 2,
+    "GPU": 0,
+    "MEM": 265,
+    "description": "Default simulation. Change the values according to your needs.",
+    "id": "104f3f0d-f0fc-4ccd-9c7b-74bdd55a6bee",
+    "launch": {
+        "file": "cannon_analytic.launch.py",
+        "package": "scheduler"
+    },
+    "parameter_setup": "default_param_setup.json",
+    "storage_type": "MCAP",
+    "timeout": 60
+}
