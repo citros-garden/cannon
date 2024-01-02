@@ -1,5 +1,0 @@
-1704229941.7269526 [INFO] [launch]: All log files can be found below /home/ros/.ros/log/2024-01-02-21-12-21-715267-docker-desktop-7287
-1704229941.7278571 [INFO] [launch]: Default logging verbosity is set to INFO
-1704229941.7298241 [INFO] [launch.user]: CITROS launch file!
-1704229941.7437031 [INFO] [citros_bag_recorder-1]: process details: cmd='ros2 bag record -a -o .citros/data/simulation_cannon_analytic/citros/20240102211220/0/bags -s mcap', cwd='None', custom_env?=True
-1704229941.7601907 [ERROR] [launch]: Caught exception in launch (see debug for traceback): "package 'scheduler' not found, searching: ['/opt/ros/humble']"

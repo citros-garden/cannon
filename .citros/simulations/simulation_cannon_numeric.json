@@ -3,7 +3,7 @@
     "GPU": 0,
     "MEM": 265,
     "description": "Default simulation. Change the values according to your needs.",
-    "id": "ebfcb455-de0d-4c81-b763-4729172dab83",
+    "id": "106736e3-ad5f-41a3-8323-280593e88b25",
     "launch": {
         "file": "cannon_numeric.launch.py",
         "package": "scheduler"

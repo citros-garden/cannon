@@ -21,7 +21,7 @@
         "scheduler": {
             "scheduler": {
                 "ros__parameters": {
-                    "dt": 0.01
+                    "dt": 0.1
                 }
             }
         }

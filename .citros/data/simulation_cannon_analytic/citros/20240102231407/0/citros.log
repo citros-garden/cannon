@@ -1,5 +1,0 @@
-[2024-01-02 23:14:07,789] [citros.simulation.run:354] [INFO]: running simulation [simulation_cannon_analytic]
-[2024-01-02 23:14:07,853] [citros.simulation.generate_launch_description:91] [INFO]: initializing simulation: simulation_cannon_analytic, sid: 0 , timeout: 60
-[2024-01-02 23:14:07,865] [citros.simulation.launch_setup:228] [INFO]: Starting clients launch package:scheduler launch:cannon_analytic.launch.py
-[2024-01-02 23:14:14,667] [citros.simulation._create_citros_bag:249] [INFO]: Creating a new CITROS bag: src = .citros/data/simulation_cannon_analytic/citros/20240102231407/0/bags/
-dst = .citros/data/simulation_cannon_analytic/citros/20240102231407/0/bags/bags_0.citros/
