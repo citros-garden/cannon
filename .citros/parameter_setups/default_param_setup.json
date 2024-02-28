@@ -4,8 +4,14 @@
             "analytic_dynamics": {
                 "ros__parameters": {
                     "dt": 0.01,
-                    "init_angle": 30.0,
-                    "init_speed": 50.0
+                    "init_angle": {
+                        "function": "numpy.random.normal",
+                        "args": [
+                            45,
+                            15
+                        ]
+                    },
+                    "init_speed": 5.0
                 }
             }
         },
@@ -14,7 +20,7 @@
                 "ros__parameters": {
                     "dt": 0.01,
                     "init_angle": 30.0,
-                    "init_speed": 50.0
+                    "init_speed": 5.0
                 }
             }
         },
